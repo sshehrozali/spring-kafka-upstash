@@ -1,4 +1,6 @@
 package com.myapp.myapp;
 
-public interface TransactionRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TransactionRepository extends JpaRepository<Integer, Transaction> {
 }
