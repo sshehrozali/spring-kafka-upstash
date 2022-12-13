@@ -21,5 +21,7 @@ public class KafkaProducer {
                 .transaction_id("AAA-123")
                 .amount("500")
                 .build();
+        kafkaTemplate.send("transactions", t.getTransaction_id(), t);
+        Thread.sleep(1000);
     }
 }
