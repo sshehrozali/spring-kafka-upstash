@@ -8,4 +8,8 @@ import org.springframework.stereotype.Service;
 public class TransactionEmitterService {
     private final TransactionRepository transactionRepository;
     private final KafkaProducer kafkaProducer;
+
+    public void processTransaction() {
+
+    }
 }
