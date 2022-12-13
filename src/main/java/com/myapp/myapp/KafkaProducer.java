@@ -12,8 +12,8 @@ import org.springframework.util.concurrent.ListenableFuture;
 @Component
 @RequiredArgsConstructor
 public class KafkaProducer {
-
     private final KafkaTemplate kafkaTemplate;
+    private final TransactionProducerCallback transactionProducerCallback;
     @Bean
     @Transactional
     public void sendMessages() throws TransactionalException, InterruptedException {
@@ -21,7 +21,8 @@ public class KafkaProducer {
                 .transaction_id("AAA-123")
                 .amount("500")
                 .build();
-        kafkaTemplate.send("transactions", t.getTransaction_id(), t);
+        ListenableFuture<SendResult<Integer, Transaction>> result = (ListenableFuture<SendResult<Integer, Transaction>>) kafkaTemplate.send("transactions", t.getTransaction_id(), t);
+        result.addCallback(transactionProducerCallback);
         Thread.sleep(1000);
     }
 }
