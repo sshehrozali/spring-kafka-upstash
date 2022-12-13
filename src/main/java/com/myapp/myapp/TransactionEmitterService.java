@@ -5,6 +5,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class TransactionEmitter {
+public class TransactionEmitterService {
     private final KafkaProducer kafkaProducer;
 }
