@@ -1,2 +1,7 @@
-package com.myapp.myapp;public class TransactionProducerCallback {
+package com.myapp.myapp;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class TransactionProducerCallback {
 }
