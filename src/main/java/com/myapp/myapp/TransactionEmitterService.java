@@ -9,7 +9,7 @@ public class TransactionEmitterService {
     private final TransactionRepository transactionRepository;
     private final KafkaProducer kafkaProducer;
 
-    public void processTransaction() {
-
+    public void processTransaction() throws InterruptedException {
+        kafkaProducer.sendMessages();
     }
 }
