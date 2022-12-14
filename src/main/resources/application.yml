@@ -1,0 +1,19 @@
+spring:
+  application.name: transactions-service
+  kafka:
+    bootstrap-servers: optimal-moose-11053-us1-kafka.upstash.io:9092
+    properties:
+      security.protocol: SASL_SSL
+      sasl.mechanism: SCRAM-SHA-256
+      sasl.jaas.config: org.apache.kafka.common.security.scram.ScramLoginModule required username="b3B0aW1hbC1tb29zZS0xMTA1MySrbCsekj885ErCV1NxqeKm-3G4GqNnsLbIqik" password="rLjR1hK8DFxmA0cxxyzb7cANYrS4IIm5spb0CR9yS6GKjztH6VHHJiEd69TnOFkZX6NkoA==";
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.LongDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+        isolation.level: read_committed
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.LongSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      transaction-id-prefix: tx-
+  output.ansi.enabled: ALWAYS
