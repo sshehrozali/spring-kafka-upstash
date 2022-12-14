@@ -14,7 +14,7 @@ import org.springframework.util.concurrent.ListenableFuture;
 public class KafkaProducer {
     private final KafkaTemplate kafkaTemplate;
     private final TransactionProducerCallback transactionProducerCallback;
-    @Bean
+
     @Transactional
     public void sendMessages() throws TransactionalException, InterruptedException {
         Transaction t = Transaction.builder()
