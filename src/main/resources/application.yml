@@ -1,8 +1,0 @@
-spring:
-  application.name: transactions-service
-  kafka:
-    bootstrap-servers:
-      - optimal-moose-11053-us1-kafka.upstash.io:9092
-    security:
-      protocol: SASL_SSL
-    
