@@ -3,7 +3,6 @@ package com.myapp.myapp;
 import jakarta.transaction.Transactional;
 import jakarta.transaction.TransactionalException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
@@ -11,7 +10,7 @@ import org.springframework.util.concurrent.ListenableFuture;
 
 @Component
 @RequiredArgsConstructor
-public class KafkaProducer {
+public class TransactionProducer {
     private final KafkaTemplate kafkaTemplate;
     private final TransactionProducerCallback transactionProducerCallback;
 
