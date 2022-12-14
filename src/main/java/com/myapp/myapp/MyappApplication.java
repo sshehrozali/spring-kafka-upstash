@@ -7,12 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.config.TopicBuilder;
 
+import java.util.Properties;
+
 @SpringBootApplication
-@RequiredArgsConstructor
 public class MyappApplication {
-
-	private final TransactionEmitterService transactionEmitterService;
-
 	public static void main(String[] args) {
 		SpringApplication.run(MyappApplication.class, args);
 	}
