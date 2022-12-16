@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @Configuration
 public class TransactionProducerConfig {
-    @Bean
+    @Bean(name = "transactionManager")
     KafkaTransactionManager<Integer, Transaction> kafkaTransactionManager(final ProducerFactory<Integer, Transaction> producerFactory) {
         return new KafkaTransactionManager<>(producerFactory);
     }
