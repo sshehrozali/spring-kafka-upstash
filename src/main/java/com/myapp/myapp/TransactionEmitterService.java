@@ -24,6 +24,6 @@ public class TransactionEmitterService {
                 .httpStatus(HttpStatus.OK)
                 .msg("Transaction send successfully")
                 .build();
-
+        return customTransactionResponse;
     }
 }
