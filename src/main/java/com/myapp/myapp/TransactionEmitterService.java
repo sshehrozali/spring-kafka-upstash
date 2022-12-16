@@ -11,7 +11,7 @@ public class TransactionEmitterService {
     private final TransactionRepository transactionRepository;
     private final TransactionProducer transactionProducer;
 
-    public void processTransaction() throws InterruptedException {
+    public void processTransaction(NewTransactionRequest newTransactionRequest) throws InterruptedException {
         Transaction t = Transaction.builder()
                 .transaction_id("ABC-123")
                 .amount(2000)
