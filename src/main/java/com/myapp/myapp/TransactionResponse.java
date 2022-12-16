@@ -1,2 +1,7 @@
-package com.myapp.myapp;public record TransactionResponse() {
+package com.myapp.myapp;
+
+import lombok.Builder;
+
+@Builder
+public record TransactionResponse() {
 }
