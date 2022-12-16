@@ -18,4 +18,5 @@ public class Transaction {
     private Integer id;
     private String transaction_id;
     private String amount;
+    private Integer state;
 }
