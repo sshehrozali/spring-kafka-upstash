@@ -1,4 +1,9 @@
 package com.myapp.myapp;
 
-public record NewTransactionRequest {
+import lombok.Builder;
+
+@Builder
+public record NewTransactionRequest(
+        Integer amount
+) {
 }
