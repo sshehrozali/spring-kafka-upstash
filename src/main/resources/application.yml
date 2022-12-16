@@ -1,5 +1,15 @@
 spring:
   application.name: payment-app
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+  h2:
+    console:
+      enabled: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
   kafka:
     bootstrap-servers: optimal-moose-11053-us1-kafka.upstash.io:9092
     properties:
