@@ -12,7 +12,7 @@ public class TransactionEmitterService {
     private final TransactionRepository transactionRepository;
     private final TransactionProducer transactionProducer;
 
-    public void processTransaction(NewTransactionRequest newTransactionRequest) throws InterruptedException {
+    public CustomTransactionResponse processTransaction(NewTransactionRequest newTransactionRequest) throws InterruptedException {
         Transaction t = Transaction.builder()
                 .transaction_id("ABC-123")
                 .amount(newTransactionRequest.amount())
@@ -24,5 +24,6 @@ public class TransactionEmitterService {
                 .httpStatus(HttpStatus.OK)
                 .msg("Transaction send successfully")
                 .build();
+
     }
 }
