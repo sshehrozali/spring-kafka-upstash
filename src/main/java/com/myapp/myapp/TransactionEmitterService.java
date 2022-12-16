@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class TransactionEmitterService {
     private final TransactionRepository transactionRepository;
-    private final KafkaProducer kafkaProducer;
+    private final TransactionProducer transactionProducer;
 
     public void processTransaction() throws InterruptedException {
         kafkaProducer.sendMessages();
