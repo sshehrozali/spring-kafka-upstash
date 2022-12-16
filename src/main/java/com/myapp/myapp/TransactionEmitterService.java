@@ -2,6 +2,7 @@ package com.myapp.myapp;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,5 +19,10 @@ public class TransactionEmitterService {
                 .build();
         log.warn("Sending Transaction... " + t);
         transactionProducer.sendTransaction(t);
+
+        CustomTransactionResponse customTransactionResponse = CustomTransactionResponse.builder()
+                .httpStatus(HttpStatus.OK)
+                .msg("Transaction send successfully")
+                .build();
     }
 }
