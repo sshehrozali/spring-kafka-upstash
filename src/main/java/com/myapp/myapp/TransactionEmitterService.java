@@ -19,6 +19,7 @@ public class TransactionEmitterService {
                 .build();
         log.warn("Sending Transaction... " + t);
         transactionProducer.sendTransaction(t);
+        log.info("Sent");
 
         CustomTransactionResponse customTransactionResponse = CustomTransactionResponse.builder()
                 .httpStatus(HttpStatus.OK)
