@@ -12,6 +12,11 @@ public class TransactionEmitterService {
     private final TransactionProducer transactionProducer;
 
     public void processTransaction() throws InterruptedException {
-        kafkaProducer.sendMessages();
+        Transaction t = Transaction.builder()
+                .transaction_id("ABC-123")
+                .amount(2000)
+                .build();
+        log.warn("Sending Transaction... " + t);
+        transactionProducer.sendTransaction(t);
     }
 }
