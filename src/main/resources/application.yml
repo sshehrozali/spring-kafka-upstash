@@ -1,5 +1,5 @@
 spring:
-  application.name: transactions-service
+  application.name: payment-app
   kafka:
     bootstrap-servers: optimal-moose-11053-us1-kafka.upstash.io:9092
     properties:
