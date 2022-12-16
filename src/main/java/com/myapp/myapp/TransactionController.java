@@ -17,6 +17,6 @@ public class TransactionController {
     @PostMapping("/new")
     public ResponseEntity<CustomTransactionResponse> newTransaction(@RequestBody NewTransactionRequest newTransactionRequest) throws InterruptedException {
         CustomTransactionResponse response = transactionEmitterService.processTransaction(newTransactionRequest);
-        return new ResponseEntity<>(customTransactionResponse, )
+        return new ResponseEntity<>(response, response.httpStatus());
     }
 }
