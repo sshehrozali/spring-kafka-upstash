@@ -14,7 +14,7 @@ public class TransactionEmitterService {
     public void processTransaction(NewTransactionRequest newTransactionRequest) throws InterruptedException {
         Transaction t = Transaction.builder()
                 .transaction_id("ABC-123")
-                .amount(2000)
+                .amount(newTransactionRequest.amount())
                 .build();
         log.warn("Sending Transaction... " + t);
         transactionProducer.sendTransaction(t);
