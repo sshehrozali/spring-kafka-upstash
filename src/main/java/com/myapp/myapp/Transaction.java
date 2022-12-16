@@ -17,5 +17,5 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String transaction_id;
-    private String amount;
+    private Integer amount;
 }
