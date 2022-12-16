@@ -21,6 +21,8 @@ public class TransactionEmitterService {
         transactionProducer.sendTransaction(t);
         log.info("Sent");
 
+        transactionRepository.save(t);
+
         CustomTransactionResponse customTransactionResponse = CustomTransactionResponse.builder()
                 .httpStatus(HttpStatus.OK)
                 .msg("Transaction send successfully")
