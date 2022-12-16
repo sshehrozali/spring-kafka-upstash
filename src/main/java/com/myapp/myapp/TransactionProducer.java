@@ -16,11 +16,7 @@ public class TransactionProducer {
     private final TransactionProducerCallback transactionProducerCallback;
 
     @Transactional
-    public void sendMessages() throws TransactionalException, InterruptedException {
-        Transaction t = Transaction.builder()
-                .transaction_id("AAA-123")
-                .amount("500")
-                .build();
+    public void sendMessages(Transaction t) throws TransactionalException, InterruptedException {
         ListenableFuture<SendResult<Integer, Transaction>> result = (ListenableFuture<SendResult<Integer, Transaction>>) kafkaTemplate.send("transactions", t.getTransaction_id(), t);
         result.addCallback(transactionProducerCallback);
         Thread.sleep(1000);
