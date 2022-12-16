@@ -1,4 +1,4 @@
 package com.myapp.myapp;
 
-public class NewTransactionRequest {
+public record NewTransactionRequest {
 }
