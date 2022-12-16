@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class TransactionController {
     private final TransactionEmitterService transactionEmitterService;
     @PostMapping("/new")
-    public ResponseEntity<TransactionResponse> newTransaction(@RequestBody NewTransactionRequest newTransactionRequest) {
-        transactionEmitterService.processTransaction(newTransactionRequest);
+    public ResponseEntity<CustomTransactionResponse> newTransaction(@RequestBody NewTransactionRequest newTransactionRequest) throws InterruptedException {
+        CustomTransactionResponse response = transactionEmitterService.processTransaction(newTransactionRequest);
+        return new ResponseEntity<>(customTransactionResponse, )
     }
 }
