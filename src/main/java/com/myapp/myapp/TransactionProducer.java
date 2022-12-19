@@ -17,20 +17,12 @@ import java.util.Properties;
 @Component
 @RequiredArgsConstructor
 public class TransactionProducer {
-    private final KafkaTemplate kafkaTemplate;
+    private final KafkaTemplate<Integer, Transaction> kafkaTemplate;
     private final TransactionProducerCallback transactionProducerCallback;
 
     @Transactional
     public void sendTransaction(Transaction t) throws InterruptedException, TransactionException {
-        Properties producerProps = new Properties();
-        producerProps.put("enable.idempotence", "true");
-        producerProps.put("transactional.id", "prod-1");
-
-        KafkaProducer<String, String> kafkaProducer = new KafkaProducer<>(producerProps);
-
-        kafkaProducer.initTransactions();
-        kafkaProducer.beginTransaction();
-        kafkaProducer.send(new ProducerRecord<>("transactions-topic", t.getId().toString(), t.toString()));
+        kafkaTemplate.send("transactions-topic", t.getId(), t);
         Thread.sleep(1000);
     }
 }
