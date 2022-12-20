@@ -12,17 +12,18 @@ import org.springframework.transaction.TransactionException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.concurrent.ListenableFuture;
 
+import java.util.Objects;
 import java.util.Properties;
 
 @Component
 @RequiredArgsConstructor
 public class TransactionProducer {
-    private final KafkaTemplate<Integer, Transaction> kafkaTemplate;
+    private final KafkaTemplate<String, Object> kafkaTemplate;
     private final TransactionProducerCallback transactionProducerCallback;
 
     @Transactional
     public void sendTransaction(Transaction t) throws InterruptedException, TransactionException {
-        kafkaTemplate.send("transactions-topic", t.getId(), t);
+        kafkaTemplate.send("transactions-topic", t);
         Thread.sleep(1000);
     }
 }
