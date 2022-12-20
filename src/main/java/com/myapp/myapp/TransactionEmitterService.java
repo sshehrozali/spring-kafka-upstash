@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -13,7 +14,7 @@ public class TransactionEmitterService {
 
     public CustomTransactionResponse processTransaction(NewTransactionRequest newTransactionRequest) throws InterruptedException {
         Transaction t = Transaction.builder()
-                .transaction_id("ABC-123")
+                .transaction_id(UUID.randomUUID().toString())
                 .amount(newTransactionRequest.amount())
                 .state(0)   // Default to 0
                 .build();
