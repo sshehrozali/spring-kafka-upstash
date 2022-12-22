@@ -22,11 +22,10 @@ public class TransactionEmitterService {
         transactionProducer.sendTransaction(t);
         log.warn("Transaction sent successfully");
 
-        CustomTransactionResponse customTransactionResponse = CustomTransactionResponse.builder()
+        return CustomTransactionResponse.builder()
                 .httpStatus(HttpStatus.OK)
                 .transactionId(t.getTransaction_id())
                 .msg("Transaction sent successfully")
                 .build();
-        return customTransactionResponse;
     }
 }
