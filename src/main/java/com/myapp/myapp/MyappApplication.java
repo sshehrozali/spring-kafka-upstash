@@ -14,13 +14,4 @@ public class MyappApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MyappApplication.class, args);
 	}
-
-	@Bean
-	public NewTopic newTopic() {
-		return TopicBuilder.name("transactions-topic")
-				.partitions(3)
-				.replicas(1)
-				.build();
-	}
-
 }
