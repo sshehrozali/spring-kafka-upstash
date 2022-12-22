@@ -19,7 +19,6 @@ public class TransactionEmitterService {
                 .state(0)   // Default to 0
                 .build();
 
-        log.warn("Transaction initiated successfully");
         transactionProducer.sendTransaction(t);
         log.warn("Transaction sent successfully");
 
